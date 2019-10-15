@@ -7,6 +7,11 @@ namespace PalTracker
     {
         private readonly ITimeEntryRepository _repository;
 
+        [HttpGet]
+        public string ping()
+        {
+            return "hello from TimeSheet";
+        }
         public TimeEntryController(ITimeEntryRepository repository)
         {
             _repository = repository;
@@ -17,13 +22,13 @@ namespace PalTracker
         {
             var createdTimeEntry = _repository.Create(timeEntry);
 
-            return CreatedAtRoute("GetTimeEntry", new {id = createdTimeEntry.Id}, createdTimeEntry);
+            return CreatedAtRoute("GetTimeEntry", new { id = createdTimeEntry.Id }, createdTimeEntry);
         }
 
         [HttpGet("{id}", Name = "GetTimeEntry")]
         public IActionResult Read(long id)
         {
-            return _repository.Contains(id) ? (IActionResult) Ok(_repository.Find(id)) : NotFound();
+            return _repository.Contains(id) ? (IActionResult)Ok(_repository.Find(id)) : NotFound();
         }
 
         [HttpGet]
@@ -35,7 +40,7 @@ namespace PalTracker
         [HttpPut("{id}")]
         public IActionResult Update(long id, [FromBody] TimeEntry timeEntry)
         {
-            return _repository.Contains(id) ? (IActionResult) Ok(_repository.Update(id, timeEntry)) : NotFound();
+            return _repository.Contains(id) ? (IActionResult)Ok(_repository.Update(id, timeEntry)) : NotFound();
         }
 
         [HttpDelete("{id}")]
