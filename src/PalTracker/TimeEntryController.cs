@@ -6,12 +6,6 @@ namespace PalTracker
     public class TimeEntryController : ControllerBase
     {
         private readonly ITimeEntryRepository _repository;
-
-        [HttpGet]
-        public string ping()
-        {
-            return "hello from TimeSheet";
-        }
         public TimeEntryController(ITimeEntryRepository repository)
         {
             _repository = repository;

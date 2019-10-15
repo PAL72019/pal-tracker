@@ -116,7 +116,6 @@ namespace PalTrackerTests
             var deleteResponse = _testClient.DeleteAsync($"/time-entries/{id}").Result;
             var getResponse = _testClient.GetAsync($"/time-entries/{id}").Result;
             var getAllResponse = _testClient.GetAsync("/time-entries").Result;
-
             Assert.Equal(HttpStatusCode.NoContent, deleteResponse.StatusCode);
             Assert.Equal(HttpStatusCode.NotFound, getResponse.StatusCode);
             Assert.Equal("[]", getAllResponse.Content.ReadAsStringAsync().Result);
