@@ -12,11 +12,13 @@ namespace PalTracker
         }
 
         [HttpPost]
+        
         public IActionResult Create([FromBody] TimeEntry timeEntry)
         {
             var createdTimeEntry = _repository.Create(timeEntry);
 
-            return CreatedAtRoute("GetTimeEntry", new { id = createdTimeEntry.Id }, createdTimeEntry);
+            var resp= CreatedAtRoute("GetTimeEntry", new { id = createdTimeEntry.Id }, createdTimeEntry);
+            return resp;
         }
 
         [HttpGet("{id}", Name = "GetTimeEntry")]

@@ -18,7 +18,14 @@ namespace PalTracker
             return timeEntry;
         }
 
-        public TimeEntry Find(long id) => _timeEntries[id];
+        public TimeEntry Find(long id)
+        {
+         if(_timeEntries.Any())
+        { 
+           return _timeEntries[id];
+        }
+           throw  new KeyNotFoundException();
+        }
 
         public bool Contains(long id) => _timeEntries.ContainsKey(id);
 
