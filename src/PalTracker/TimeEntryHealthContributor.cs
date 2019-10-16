@@ -7,7 +7,7 @@ namespace PalTracker
     public class TimeEntryHealthContributor : IHealthContributor
     {
         private readonly ITimeEntryRepository _timeEntryRepository;
-        public const int MaxTimeEntries = 5;
+        public const int MaxTimeEntries = 50;
 
 
         public TimeEntryHealthContributor(ITimeEntryRepository timeEntryRepository)
