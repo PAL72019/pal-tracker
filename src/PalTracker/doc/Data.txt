@@ -1,0 +1,114 @@
+Github access:
+https://github.com/PAL72019/pal-tracker
+email: priyarathnala@gmail.com
+UN:PAL72019
+PW:Pal_7@123
+
+CF
+Anand@123
+https://api.run.pivotal.io
+DellEMC_PAL
+
+git remote set-url origin https://github.com/PAL72019/pal-tracker
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperSimpleApp -PserverUrl=https://pal-tracker-bright-bat.cfapps.io/
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperCloudFoundry -PserverUrl=https://pal-tracker-optimistic-springhare.cfapps.io/
+
+Gitpath for Circleci CICD
+https://github.com/PAL72019/pal-tracker.git
+
+review
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperPipelines -PreviewUrl=https://anand-pal-tracker-review.cfapps.io/ -PproductionUrl=https://anand-pal-tracker-production.cfapps.io/
+
+
+
+Request:
+
+{
+
+ "Id" :1,
+            "ProjectId" :9999,
+            "UserId": 75,
+            "Date" :"2019-10-15",
+            "Hours" :5
+}
+
+TimeSheet API Urls:
+1. Create:
+https://anand-pal-tracker-production.cfapps.io/time-entries/
+{
+
+ "Id" :1,
+            "ProjectId" :1235,
+            "UserId": 75,
+            "Date" :"2019-10-15",
+            "Hours" :3
+}
+
+2. Get:
+https://anand-pal-tracker-production.cfapps.io/time-entries/1
+
+3. Update:
+https://anand-pal-tracker-production.cfapps.io/time-entries/1
+{
+    "id": 1,
+    "projectId": 9999,
+    "userId": 75,
+    "date": "2019-10-15T00:00:00",
+    "hours": 5
+}
+
+4. Delete:
+https://anand-pal-tracker-production.cfapps.io/time-entries/1
+
+5. List:
+https://anand-pal-tracker-production.cfapps.io/time-entries/
+
+
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperRest -PserverUrl=https://anand-pal-tracker-production.cfapps.io/
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperDatabaseMigrations -PserverUrl=https://anand-pal-tracker-production.cfapps.io/
+
+cd ~/workspace/assignment-submission
+./gradlew cloudNativeDeveloperDatabaseAccess -PserverUrl=https://anand-pal-tracker-production.cfapps.io/
+
+
+us-cdbr-iron-east-05.cleardb.net
+
+PS C:\Users\PAL-7\workspace\pal-tracker> cf target
+api endpoint:   https://api.run.pivotal.io
+user:           Anand_Naikawadi@Dell.com
+org:            DellEMC_PAL
+space:          Anand_Naikawadi@Dell.com
+
+cf login
+cf delete
+cf spaces - to get spaces
+cf create-org, create-space, login, orgs, spaces
+
+1) Create Service: cf create-service cleardb spark tracker-database
+2) Bind Service: cf bind-service pal-tracker-review tracker-database
+
+dotnet build
+dotnet test
+dotnet new sln --name PalTracker
+dotnet publish --configuration Release
+dotnet --version
+
+git status
+git add .
+git commit -m "comments"
+git push -f
+git clone
+git cherry-pick
+
+
+./gradlew cloudNativeDeveloperHealthMonitoring -PserverUrl=https://anand-pal-tracker-production.cfapps.io/cloudfoundryapplication/info
